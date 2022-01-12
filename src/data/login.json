@@ -1,0 +1,16 @@
+{
+    "contentFormLogin": {
+        "title": "Welcome",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing ellit.",
+        "inputUser": "User",
+        "inputPass": "Password",
+        "forgot": "Forgot your password?",
+        "btnLogin": "Login",
+        "errorText": "Los datos no coinciden"
+    },
+    "contentLogin": {
+        "title": "Discover Your Best Sport With Us",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing ellit.",
+        "btnLogin": "Login"
+    }
+}
