@@ -6,5 +6,6 @@ import { FormLogin } from './forms';
 import { ContentLogin } from './contentLogin';
 import { Spinner } from './spinner'
 import { TextDanger } from './textDanger'
+import { ContentHome } from './contentHome'
 
-export { GlobalStyles, Button, InputStyled, ToggleTheme, FormLogin, ContentLogin, Spinner, TextDanger }
+export { GlobalStyles, Button, InputStyled, ToggleTheme, FormLogin, ContentLogin, Spinner, TextDanger, ContentHome }

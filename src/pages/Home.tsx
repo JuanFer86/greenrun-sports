@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
+import { ContentHome } from '../styled'
 
 export const Home: FC = () => {
     return (
-        <div>
-            Aquí sera el home
-        </div>
+        <ContentHome>
+            Aqui home
+        </ContentHome>
     )
 }
