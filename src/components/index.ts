@@ -7,4 +7,9 @@ import ProtectedRoutes from './routes/ProtectedRoutes';
 import ContentFormLogin from './contentFormLogin/ContentFormLogin';
 import ContentLogin from './contentLogin/ContentLogin'
 
-export { Input, PrivateRoute, PublicRoute, ProtectedRoutes, ContentFormLogin, ContentLogin }
+import SwipeCard from './swipeCard/SwipeCard'
+import HistoryCard from './historyCards/HistoryCards'
+
+import Navbar from './navbar/Navbar'
+
+export { Input, PrivateRoute, PublicRoute, ProtectedRoutes, ContentFormLogin, ContentLogin, SwipeCard, Navbar, HistoryCard }

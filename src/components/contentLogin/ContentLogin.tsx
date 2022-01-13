@@ -1,7 +1,6 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 import { Button, ContentLogin as Content } from "../../styled";
 import { Messi } from "../../assets";
-import AppContext from "../../context/AppContext";
 
 import contentLogin from '../../data/login.json';
 

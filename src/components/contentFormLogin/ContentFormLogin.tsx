@@ -31,8 +31,10 @@ const ContentFormLogin: FC = () => {
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then((resp: any) => {
         const {
-          user: { accessToken },
+          user: { accessToken, uid },
         } = resp;
+
+        // console.log(resp);
 
         createCookie("_t", accessToken);
 
@@ -40,7 +42,9 @@ const ContentFormLogin: FC = () => {
 
         dispatch({
           type: types.login,
-          payload: {},
+          payload: {
+            uid
+          },
         });
       })
       .catch(() => setFeed( feed => ({ ...feed, error: true, loading: false }) ));

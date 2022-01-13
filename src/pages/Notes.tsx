@@ -1,9 +1,8 @@
 import React, { FC } from 'react'
+import { ContentNotes } from '../styled'
 
 export const Notes: FC = () => {
     return (
-        <div>
-
-        </div>
+        <ContentNotes></ContentNotes>
     )
 }

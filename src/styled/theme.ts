@@ -8,12 +8,14 @@ backdrop-filter: blur(20px);
 border: transparent;
 border-radius: 10px;
 
+z-index:1;
+
 
 cursor: pointer;
 
 height: 35px;
 
-margin: 1rem;
+margin: 2rem;
 
 opacity: 1;
 
