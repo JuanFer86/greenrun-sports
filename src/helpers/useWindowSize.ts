@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react"
+import { Dispatch, SetStateAction, useLayoutEffect, useState } from "react"
 
 
 export const useWindowSize = (): number[] => {
@@ -9,7 +9,7 @@ export const useWindowSize = (): number[] => {
         window.addEventListener('resize', () =>{
             updateSize( setSize );
 
-            return () => window.removeEventListener('resize', updateSize);
+            return () => window.removeEventListener('resize', () => updateSize);
         })
         updateSize(setSize);
         
@@ -19,7 +19,7 @@ export const useWindowSize = (): number[] => {
 }
 
 
-const updateSize = (setSize: any): void => {
+const updateSize = (setSize: Dispatch<SetStateAction<number[]>>): void => {
 
     const { innerWidth: width, innerHeight: height } = window
 

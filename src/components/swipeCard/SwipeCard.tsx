@@ -5,12 +5,10 @@ import React, {
   SetStateAction,
   useContext,
   useEffect,
-  useState,
 } from "react";
-import { animated, useSprings, to as interpolate } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
-import { handleLike, useBind, useLessCrowd } from "../../helpers";
-import AppContext from "../../context/AppContext";
+import { animated, to as interpolate } from "@react-spring/web";
+import { useBind, useLessCrowd } from "../../helpers";
+import AppContext, { typeSports } from "../../context/AppContext";
 import { Ripple } from "..";
 
 interface coordsTypes {
@@ -28,7 +26,7 @@ interface CardProperties {
 interface CardsProps {
   cards?: CardProperties[];
   setIndex: Dispatch<SetStateAction<number>>;
-  setSports: Dispatch<SetStateAction<any>[]>;
+  setSports: Dispatch<SetStateAction<typeSports[]>>;
 }
 
 const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
@@ -37,7 +35,7 @@ const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
   const trans = (r: number, s: number, t: number) =>
     `scale(${s}) translateY(${t}rem)`;
 
-  const [gone, props, api, to, from] = useLessCrowd( cards );
+  const [gone, props, api, to] = useLessCrowd( cards );
   
 
   useEffect(() => {
@@ -49,6 +47,7 @@ const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
       y: cards[index]?.coords.y,
       config: { friction: 100, tension: 100 },
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards]);
 
   const bind = useBind( setIndex, cards, setSports, state, api, gone, to  );

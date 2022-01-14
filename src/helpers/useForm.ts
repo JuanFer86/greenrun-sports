@@ -4,7 +4,7 @@ interface values {
     [key: string]: string
 }
 
-export const useForm = ( initialState = {} ): [ values, any, any ] => {
+export const useForm = ( initialState = {} ): [ values, (e: ChangeEvent<HTMLInputElement>)=>void, ()=>void ] => {
     
     const [values, setValues] = useState(initialState);
 

@@ -11,7 +11,7 @@ const PrivateRoute: FC<routeProps> = ({ children }) => {
     const { state } = useContext(AppContext)
 
     return (
-        state.logged ? children : <Navigate to='/login' />
+        state?.logged ? children : <Navigate to='/login' />
     )
 
 }

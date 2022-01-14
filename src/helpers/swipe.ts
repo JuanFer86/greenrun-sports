@@ -2,29 +2,13 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { handleLike } from ".";
+import { typeSports, typeState } from '../context/AppContext';
 
 interface cardsArg {
   [key: string]: string;
 }
 
-interface toTypes {
-    x: number,
-    y: number,
-    scale: number,
-    transY: number,
-    rot: number,
-    delay: number,
-}
-
-interface fromTypes {
-    x: number, rot: number, scale: number, y: number, transY: number
-}
-
-interface propsTypes{
-    x: 0, rot: 0, scale: 1, y: 0, transY: 0
-}
-
-export const useLessCrowd = (cards: cardsArg[]): [ any, any , any , any , any ] => {
+export const useLessCrowd = (cards: cardsArg[]): [ any, any , any , any ] => {
   const to = (i: number) => ({
     x: 0,
     y: 0,
@@ -43,10 +27,10 @@ export const useLessCrowd = (cards: cardsArg[]): [ any, any , any , any , any ] 
     from: from(i),
   }));
 
-  return [gone, props, api, to, from];
+  return [gone, props, api, to];
 };
 
-export const useBind = (setIndex: Dispatch<SetStateAction<number>>, cards: cardsArg[], setSports: Dispatch<SetStateAction<any>[]>, state: cardsArg, api:any, gone:any, to:any ) => {
+export const useBind = (setIndex: Dispatch<SetStateAction<number>>, cards: cardsArg[], setSports: Dispatch<SetStateAction<typeSports[]>>, state: typeState, api:any, gone:any, to:any ) => {
 
     const bind = useDrag(
         ({
