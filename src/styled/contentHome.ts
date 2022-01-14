@@ -7,7 +7,7 @@ export const ContentHome = styled.div`
   width: 100%;
   height: 85vh;
 
-  .containerCards{
+  .containerCards {
     display: flex;
     position: relative;
     justify-content: center;
@@ -23,10 +23,12 @@ export const ContentHome = styled.div`
     align-items: center;
     justify-content: center;
     top: 0;
+    z-index:1;
+
 
     div {
       touch-action: none;
-      background-color: white;
+      background-color: transparent;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
@@ -80,12 +82,16 @@ export const ContentHome = styled.div`
         font-size: 32px;
         margin-left: 1rem;
         margin-top: 4rem;
-        color: #FEFEFE
+        color: #fefefe;
       }
     }
   }
 
-  .buttons{
+  .none {
+    display: none;
+  }
+
+  .buttons {
     display: flex;
     justify-content: center;
     /* align-self: flex-end; */

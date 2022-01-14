@@ -40,6 +40,7 @@ export const LikeButton = styled.button`
   background: linear-gradient(125.02deg, #236bfe -17.11%, #063ba8 98.58%);
   margin: 0.5rem;
   transition: 0.2s ease-in 0s;
+  z-index:0;
 
   &:hover,  &:active {
     transform: scale(1.1);
@@ -58,7 +59,7 @@ export const DislikeButton = styled.button`
   cursor: pointer;
   background: #222243;
   margin: 0.5rem;
-
+  z-index:0;
   transition: all 0.2s ease-in-out 0s;
 
   &:hover, &:active {

@@ -8,7 +8,7 @@ backdrop-filter: blur(20px);
 border: transparent;
 border-radius: 10px;
 
-z-index:1;
+z-index:2;
 
 
 cursor: pointer;

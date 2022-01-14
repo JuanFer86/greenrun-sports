@@ -24,9 +24,6 @@ export const History: FC = () => {
 
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => setHistorial( (histo) => ([ ...histo, { id: doc.id, ...doc.data() } ]) ) )
-        // {
-        //     console.log(doc.id, " => ", doc.data());
-        // } 
     })()
 
   }, [])
