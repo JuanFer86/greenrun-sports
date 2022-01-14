@@ -3,6 +3,8 @@ import { ContentProfile } from '../styled/contentProfile';
 
 export const Profile: FC = () => {
     return (
-        <ContentProfile></ContentProfile>
+        <ContentProfile>
+            
+        </ContentProfile>
     )
 }
