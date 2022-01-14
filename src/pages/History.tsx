@@ -13,7 +13,7 @@ interface props {
 export const History: FC = () => {
   const { title, description, date } = data;
 
-  const { state: { uid } } = useContext(AppContext);
+  const { state: { uid, theme } } = useContext(AppContext);
 
   const [historial, setHistorial] = useState<props[]>([])
 
@@ -29,7 +29,7 @@ export const History: FC = () => {
   }, [])
 
   return (
-    <ContentHistory>
+    <ContentHistory theme={{ isDark: theme }} >
       <div className="container">
         <section className="header">
           <h4>{title}</h4>

@@ -23,7 +23,6 @@ function App() {
   }, [state])
 
   const handleTheme = (): void => {
-    // setTheme(!theme);
     dispatch({
       type: types.toggleTheme,
       payload:{}
@@ -31,12 +30,10 @@ function App() {
   };
 
   return (
-    // <Theme theme={theme[0]} >
     <AppContext.Provider value={{ state, dispatch }}>
       <GlobalStyles theme={state.theme} />
 
-      {/* revisar por que no cambiar le background del boton de toggle */}
-      <ToggleTheme theme={state.theme} onClick={handleTheme}>
+      <ToggleTheme theme={{ isDark: state.theme}} onClick={handleTheme}>
         <img
           src={state.theme ? LightIcon : DarkIcon}
           alt="theme"
@@ -60,7 +57,6 @@ function App() {
         </Routes>
       </Router>
 
-      {/* </Theme> */}
     </AppContext.Provider>
   );
 }

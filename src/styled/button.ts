@@ -57,10 +57,11 @@ export const DislikeButton = styled.button`
   border: transparent;
   border-radius: 50%;
   cursor: pointer;
-  background: #222243;
+  background: ${ ({ theme }) => theme.isDark ? '#222243' : '#FFFFFF' };
   margin: 0.5rem;
   z-index:0;
   transition: all 0.2s ease-in-out 0s;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.20);
 
   &:hover, &:active {
     transform: scale(1.1);

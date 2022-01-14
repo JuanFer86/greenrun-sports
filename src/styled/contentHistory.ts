@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const ContentHistory = styled.div`
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
   width: 100%;
   height: 85vh;
 
@@ -25,7 +22,7 @@ export const ContentHistory = styled.div`
         font-size: 38px;
         margin-top: 5rem;
         margin-bottom: 1rem;
-        color: #fefefe;
+        color: ${ ({ theme }) => theme.isDark ? '#FEFEFE' : '#161617' };
       }
     }
   }
@@ -67,7 +64,7 @@ export const ContentHistory = styled.div`
 export const HistoryInfo = styled.article`
   display: grid;
   grid-template-columns: 5fr 1fr;
-  background: #212135;
+  background: ${ ({theme}) => theme.isDark ? '#212135' : '#FFFFFF' };
   border-radius: 12px;
   margin: 0 1rem 1rem;
   width: 90%;

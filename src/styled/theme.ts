@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ToggleTheme = styled.button`
-background: ${({ theme }) => theme ? '#F3F3F3' : '#181828'};
+background-color: ${({ theme }) => theme.isDark ? '#F3F3F3' : '#181828'};
 
 backdrop-filter: blur(20px);
 

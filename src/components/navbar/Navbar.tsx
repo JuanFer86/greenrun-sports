@@ -1,19 +1,22 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { History, Notes, Profile, Home } from "../../assets";
+import AppContext from "../../context/AppContext";
 import { ListItem, NavBar } from "../../styled";
 
 const Navbar: FC = () => {
+
+  const { state:{theme} } = useContext(AppContext)
+
   const { pathname } = useLocation();
 
   const path = pathname.replace("/", "");
 
   return (
-    <NavBar>
+    <NavBar theme={{ isDark: theme }}>
       <section>
         <ul>
           <Link to="/">
-            <ListItem isSelected={path === ""}>
+            <ListItem isSelected={path === ""} theme={{ isDark: theme }} >
               <svg
                 width="19"
                 height="20"
@@ -26,7 +29,7 @@ const Navbar: FC = () => {
             </ListItem>
           </Link>
           <Link to="/history">
-            <ListItem isSelected={path == "history"}>
+            <ListItem isSelected={path === "history"} theme={{ isDark: theme }} >
               <svg
                 width="19"
                 height="19"
@@ -39,7 +42,7 @@ const Navbar: FC = () => {
             </ListItem>
           </Link>
           <Link to="/notes">
-            <ListItem isSelected={path === "notes"}>
+            <ListItem isSelected={path === "notes"} theme={{ isDark: theme }}>
               {" "}
               <svg
                 width="19"
@@ -53,7 +56,7 @@ const Navbar: FC = () => {
             </ListItem>
           </Link>
           <Link to="/profile">
-            <ListItem isSelected={path === "profile"}>
+            <ListItem isSelected={path === "profile"} theme={{ isDark: theme }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="navIcons"
