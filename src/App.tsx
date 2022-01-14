@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Login, NotFound } from "./pages";
+import { Login } from "./pages";
 import { GlobalStyles, ToggleTheme } from "./styled";
 import { DarkIcon, LightIcon } from "./assets";
 import AppContext from "./context/AppContext";

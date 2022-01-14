@@ -22,6 +22,12 @@ export const AppReducer = (state: actionType, action: actionType ) => {
                 ...state,
                 theme: !state.theme
             }
+
+        case types.addSports:
+            return {
+                ...state,
+                ...action.payload
+            }
     
         default:
             return state;

@@ -1,8 +1,8 @@
-import { createContext, Dispatch } from 'react'
+import { createContext } from 'react'
 
 interface AppContextInterface {
     state: any,
-    dispatch: any
+    dispatch: any,
   }
 
 const AppContext = createContext<AppContextInterface>({ state: {}, dispatch: () => {} });
