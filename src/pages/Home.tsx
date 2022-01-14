@@ -55,6 +55,7 @@ export const Home: FC = () => {
       </div>
       <div className="buttons">
         <DislikeButton
+          theme={{ isDark: state.theme }}
           onClick={() =>
             handleLike(setSports, index, setIndex, {
               idSport: sports[index].idSport,

@@ -12,7 +12,7 @@ const HistoryCards: FC<propsCard> = ({ isLike, idSport }) => {
 
     const [srcImg, setSrcImg] = useState()
 
-    const { state: { sports } } = useContext(AppContext);
+    const { state: { sports, theme } } = useContext(AppContext);
 
     useEffect(() => {
         const src = sports.find(( obj: any ) => obj.idSport === idSport )
@@ -20,7 +20,7 @@ const HistoryCards: FC<propsCard> = ({ isLike, idSport }) => {
     }, [])
 
     return (
-        <HistoryInfo>
+        <HistoryInfo theme={{ isDark: theme }}>
             <div className='imageSport'>
                 <img src={srcImg} className='imageSport' alt="sport" />
             </div>

@@ -1,6 +1,7 @@
 import React, {
   Dispatch,
   FC,
+  Fragment,
   SetStateAction,
   useContext,
   useEffect,
@@ -8,9 +9,17 @@ import React, {
 } from "react";
 import { animated, useSprings, to as interpolate } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-import { handleLike } from "../../helpers";
+import { handleLike, useBind, useLessCrowd } from "../../helpers";
 import AppContext from "../../context/AppContext";
 import { Ripple } from "..";
+
+interface coordsTypes {
+  x: number,
+  y: number,
+  rot: number,
+  scale: number,
+  transY: number
+}
 
 interface CardProperties {
   [key: string]: string | any;
@@ -25,28 +34,14 @@ interface CardsProps {
 const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
   const { state } = useContext(AppContext);
 
-  const to = (i: number) => ({
-    x: 0,
-    y: 0,
-    scale: 1,
-    transY: 0,
-    rot: -10 + Math.random() * 20,
-    delay: i * 100,
-  });
-
-  const from = (_i: number) => ({ x: 0, rot: 0, scale: 1, y: 0, transY: 0 });
-
   const trans = (r: number, s: number, t: number) =>
     `scale(${s}) translateY(${t}rem)`;
 
-  const [gone] = useState(() => new Set());
-  const [props, api] = useSprings(cards.length, (i) => ({
-    ...to(i),
-    from: from(i),
-  }));
+  const [gone, props, api, to, from] = useLessCrowd( cards );
+  
 
   useEffect(() => {
-    api.start((index) => ({
+    api.start((index: number) => ({
       x: cards[index]?.coords.x,
       rot: 0,
       scale: cards[index]?.coords.scale,
@@ -56,68 +51,16 @@ const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
     }));
   }, [cards]);
 
-  const bind = useDrag(
-    ({
-      args: [index],
-      active,
-      movement: [mx, my],
-      direction: [xDir, yDir],
-      velocity: [vx],
-    }) => {
-      const trigger = vx > 0.2;
-      if (!active && trigger) {
-        gone.add(index);
-        setIndex((i) => i - 1);
+  const bind = useBind( setIndex, cards, setSports, state, api, gone, to  );
 
-        if (mx > 100) {
-          handleLike(setSports, index, setIndex, {
-            idSport: cards[index].idSport,
-            isLike: true,
-            uid: state.uid,
-          });
-        } else if (mx < 100) {
-          handleLike(setSports, index, setIndex, {
-            idSport: cards[index].idSport,
-            isLike: false,
-            uid: state.uid,
-          });
-        }
-      }
-
-      api.start((i) => {
-        if (index !== i) return;
-        const isGone = gone.has(index);
-        const x = isGone ? (200 + window.innerWidth) * xDir : active ? mx : 0;
-        const y = isGone ? (200 + window.innerHeight) * yDir : active ? my : 0;
-        const rot = mx / 100 + (isGone ? xDir * 10 * vx : 0);
-        const scale = active ? 1 : 1;
-        const transY = active ? 3 : 0;
-        return {
-          x,
-          y,
-          rot,
-          scale,
-          transY,
-          delay: undefined,
-          config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
-        };
-      });
-      if (!active && gone.size === cards.length)
-        setTimeout(() => {
-          gone.clear();
-          api.start((i) => to(i));
-        }, 1000);
-    }
-  );
 
   return (
     <>
-      {props.map(({ x, y, rot, scale, transY }, i) => (
-        <>
+      {props.map(({ x, y, rot, scale, transY }: coordsTypes, i: number) => (
+        <Fragment key={i}>
           {(cards[i].isLike && cards[i].strSport !== "" ) && <Ripple />}
           <animated.div
             className={`CardSports ${cards[i].strSport === "" && "none"}`}
-            key={i}
             style={{
               x,
               y,
@@ -138,7 +81,7 @@ const SwipeCard: FC<CardsProps> = ({ cards = [], setIndex, setSports }) => {
               <h4>{cards[i]?.strSport}</h4>
             </section>
           </animated.div>
-        </>
+        </Fragment>
       ))}
     </>
   );
