@@ -7,7 +7,6 @@ import { types } from "../helpers/types";
 import { ContentHome, DislikeButton, LikeButton } from "../styled";
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from "../firebase-config";
-import { readCookie } from '../helpers/cookies';
 
 export const Home: FC = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -28,7 +27,7 @@ export const Home: FC = () => {
   }, [dispatch]);
 
   const handleClick =  async () => {
-    const req = await setDoc( doc(  collection( db, 'users' ) ) , {  idSport: '102', isLike: true, uid: state.uid} );
+    await setDoc( doc(  collection( db, 'users' ) ) , {  idSport: '103', isLike: false, uid: state.uid} );
   }
 
   return (

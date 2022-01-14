@@ -11,6 +11,7 @@ export const ContentHistory = styled.div`
     display: flex;
     position: relative;
     flex-direction: column;
+    height: 97%;
 
     .header {
       margin-left: 2rem;
@@ -33,12 +34,20 @@ export const ContentHistory = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0 1rem 1rem 1rem;
+    overflow: auto;
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar{
+        display: none;
+    }
   }
 
   @media (max-width: 1024px) {
     .containerInfo {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+    overflow: auto;
+    
     }
   }
 
@@ -46,6 +55,11 @@ export const ContentHistory = styled.div`
     .containerInfo {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
+      /* z-index: -1; */
+      height: 100%;
+      position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling:touch;
     }
   }
 `;

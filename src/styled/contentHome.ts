@@ -35,7 +35,7 @@ export const ContentHome = styled.div`
       height: 100%;
       max-height: 570px;
       will-change: transform;
-      border-radius: 0 0 30px 30px;
+      border-radius: 5px 5px 30px 30px;
     }
 
     .IconGreen {

@@ -1,19 +1,31 @@
-import React, { FC, useContext } from 'react'
-import { Like } from '../../assets';
+import React, { FC, useContext, useEffect, useState } from 'react'
+import { Like, Dislike } from '../../assets';
 import AppContext from '../../context/AppContext';
 import { HistoryInfo } from '../../styled';
 
-const HistoryCards: FC = () => {
+interface propsCard {
+    isLike: boolean,
+    idSport: string,
+}
 
-    const { state: { sports } } = useContext(AppContext)
+const HistoryCards: FC<propsCard> = ({ isLike, idSport }) => {
+
+    const [srcImg, setSrcImg] = useState()
+
+    const { state: { sports } } = useContext(AppContext);
+
+    useEffect(() => {
+        const src = sports.find(( obj: any ) => obj.idSport === idSport )
+        setSrcImg(src.strSportThumb)
+    }, [])
 
     return (
         <HistoryInfo>
             <div className='imageSport'>
-                <img src={sports[0].strSportThumb} className='imageSport' alt="sport" />
+                <img src={srcImg} className='imageSport' alt="sport" />
             </div>
             <div>
-                <img src={ Like } alt="" />
+                <img src={ isLike ? Like : Dislike } alt="" />
                 {/* <img src="" alt="" srcset="" /> */}
             </div>
         </HistoryInfo>
