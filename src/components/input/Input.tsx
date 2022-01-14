@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from "react";
+import React, { ChangeEvent, FC, useContext, useRef } from "react";
 import AppContext from "../../context/AppContext";
 import { InputStyled } from "../../styled";
 
@@ -7,7 +7,7 @@ interface InputProps {
     id?: string | number
   label?: string;
   type?: string;
-  onChange?: any;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   value?: string | number
   name?: string
 }
@@ -28,7 +28,7 @@ export const Input: FC<InputProps> = ({ id = 'input', label, type = "text", onCh
     }
 
   return (
-    <InputStyled theme={state.theme} ref={divRef} onFocus={handleFocus} onBlur={handleBlur} className="color-inputStyled" >
+    <InputStyled theme={state?.theme} ref={divRef} onFocus={handleFocus} onBlur={handleBlur} className="color-inputStyled" >
       <label htmlFor={ `${id}-${label}` }  >{label}</label>
       <input ref={inputRef} name={name} autoComplete="off" id={`${id}-${label}`} type={type} onFocus={handleFocus} onBlur={handleBlur} value={value} onChange={onChange} />
     </InputStyled>

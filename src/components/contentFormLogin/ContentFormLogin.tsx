@@ -7,7 +7,7 @@ import { useForm } from "../../helpers";
 import { types } from "../../helpers/types";
 import { Button, FormLogin, Spinner, TextDanger } from "../../styled";
 import contentFormLogin from "../../data/login.json";
-import { createCookie } from "../../helpers/cookies";
+// import { createCookie } from "../../helpers/cookies";
 
 const ContentFormLogin: FC = () => {
   const [feedBack, setFeed] = useState({ error: false, loading: false });
@@ -29,14 +29,12 @@ const ContentFormLogin: FC = () => {
     setFeed( feed => ({ ...feed, error:false, loading: true }) );
 
     signInWithEmailAndPassword(auth, values.email, values.pass)
-      .then((resp: any) => {
+      .then((resp) => {
         const {
-          user: { accessToken, uid },
+          user: { uid },
         } = resp;
 
         // console.log(resp);
-
-        createCookie("_t", accessToken);
 
         setFeed( feed => ({ ...feed, loading: false }) );
 
@@ -51,7 +49,7 @@ const ContentFormLogin: FC = () => {
   };
 
   return (
-    <FormLogin theme={state.theme} onSubmit={handleSubmit}>
+    <FormLogin theme={state?.theme} onSubmit={handleSubmit}>
       <div className="container-form">
         <h4>{data.title as string}</h4>
         <p>{data.description as string}</p>

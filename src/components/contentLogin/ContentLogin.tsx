@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import { Button, ContentLogin as Content } from "../../styled";
 import { Messi } from "../../assets";
 
 import contentLogin from '../../data/login.json';
 
 interface toggleProps {
-  setToggle: any;
+  setToggle: Dispatch<SetStateAction<boolean>>;
 }
 
 const ContentLogin: FC<toggleProps> = ({ setToggle }) => {

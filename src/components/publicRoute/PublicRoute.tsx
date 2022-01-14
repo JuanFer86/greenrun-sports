@@ -12,7 +12,7 @@ const PublicRoute: FC<routeProps> = ({ children }) => {
     const { state } = useContext(AppContext)
 
     return (
-        state.logged ? <Navigate to='/' /> : children
+        state?.logged ? <Navigate to='/' /> : children
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState, SetStateAction, Dispatch } from "react";
 import { ContentHistory } from "../styled/contentHistory";
 import data from "../data/history.json";
 import { HistoryCard } from "../components";
@@ -7,7 +7,10 @@ import { db } from "../firebase-config";
 import AppContext from "../context/AppContext";
 
 interface props {
-    [key: string]: any
+  id: string,
+  isLike: boolean,
+  idSport: string,
+    // [key: string]: string | boolean | null 
 }
 
 export const History: FC = () => {
@@ -23,7 +26,7 @@ export const History: FC = () => {
         const q = query(collection(db, 'users'), where( 'uid', "==", uid ));
 
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => setHistorial( (histo) => ([ ...histo, { id: doc.id, ...doc.data() } ]) ) )
+        querySnapshot.forEach((doc) => setHistorial( (histo ) => ([ ...histo, { id: doc.id, ...doc.data() as Omit<props, 'id'> } ]) ) )
     })()
 
   }, [])

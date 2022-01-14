@@ -1,10 +1,16 @@
 import { types } from '../helpers/types';
+import { typeState } from './AppContext';
 
 interface actionType {
     [key:string]: any
 }
 
-export const AppReducer = (state: actionType, action: actionType ) => {
+interface typeAction{
+    type: string,
+    payload: actionType
+}
+
+export const AppReducer = (state: typeState, action: typeAction ) => {
     switch (action.type) {
         case types.login:
             return {
