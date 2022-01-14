@@ -11,6 +11,7 @@ import { ContentHistory, HistoryInfo } from "./contentHistory";
 import { ContentNotes } from "./contentNotes";
 import { ContentProfile } from './contentProfile'
 import { NavBar, ListItem } from './navBar'
+import { RippleContainer } from './ripple'
 
 export {
   GlobalStyles,
@@ -30,4 +31,5 @@ export {
   LikeButton,
   DislikeButton,
   HistoryInfo,
+  RippleContainer
 };

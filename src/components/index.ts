@@ -5,11 +5,13 @@ import PublicRoute from './publicRoute/PublicRoute';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 
 import ContentFormLogin from './contentFormLogin/ContentFormLogin';
-import ContentLogin from './contentLogin/ContentLogin'
+import ContentLogin from './contentLogin/ContentLogin';
 
-import SwipeCard from './swipeCard/SwipeCard'
-import HistoryCard from './historyCards/HistoryCards'
+import SwipeCard from './swipeCard/SwipeCard';
+import HistoryCard from './historyCards/HistoryCards';
 
-import Navbar from './navbar/Navbar'
+import Navbar from './navbar/Navbar';
 
-export { Input, PrivateRoute, PublicRoute, ProtectedRoutes, ContentFormLogin, ContentLogin, SwipeCard, Navbar, HistoryCard }
+import Ripple from './Ripple/Ripple'
+
+export { Input, PrivateRoute, PublicRoute, ProtectedRoutes, ContentFormLogin, ContentLogin, SwipeCard, Navbar, HistoryCard, Ripple }
