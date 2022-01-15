@@ -28,7 +28,7 @@ export const Input: FC<InputProps> = ({ id = 'input', label, type = "text", onCh
     }
 
   return (
-    <InputStyled theme={state?.theme} ref={divRef} onFocus={handleFocus} onBlur={handleBlur} className="color-inputStyled" >
+    <InputStyled theme={{ isDark: state.theme}} ref={divRef} onFocus={handleFocus} onBlur={handleBlur} className="color-inputStyled" >
       <label htmlFor={ `${id}-${label}` }  >{label}</label>
       <input ref={inputRef} name={name} autoComplete="off" id={`${id}-${label}`} type={type} onFocus={handleFocus} onBlur={handleBlur} value={value} onChange={onChange} />
     </InputStyled>

@@ -49,7 +49,7 @@ const ContentFormLogin: FC = () => {
   };
 
   return (
-    <FormLogin theme={state?.theme} onSubmit={handleSubmit}>
+    <FormLogin theme={{ isDark: state.theme}} onSubmit={handleSubmit}>
       <div className="container-form">
         <h4>{data.title as string}</h4>
         <p>{data.description as string}</p>

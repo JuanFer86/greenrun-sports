@@ -40,12 +40,12 @@ export const LikeButton = styled.button`
   background: linear-gradient(125.02deg, #236bfe -17.11%, #063ba8 98.58%);
   margin: 0.5rem;
   transition: 0.2s ease-in 0s;
-  z-index:0;
+  z-index: 0;
 
-  &:hover,  &:active {
+  &:hover,
+  &:active {
     transform: scale(1.1);
   }
-
 `;
 
 export const DislikeButton = styled.button`
@@ -57,14 +57,28 @@ export const DislikeButton = styled.button`
   border: transparent;
   border-radius: 50%;
   cursor: pointer;
-  background: ${ ({ theme }) => theme.isDark ? '#222243' : '#FFFFFF' };
+  background: ${({ theme }) => (theme.isDark ? "#222243" : "#FFFFFF")};
   margin: 0.5rem;
-  z-index:0;
+  z-index: 0;
   transition: all 0.2s ease-in-out 0s;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.20);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     transform: scale(1.1);
   }
+`;
 
+export const LogoutButton = styled(Button)`
+  background: linear-gradient(99deg, #b91818 6.69%, #8b1111 80.95%);
+  box-shadow: 0px 4px 30px rgb(169 25 25 / 55%);
+  width: 10rem;
+
+  &:hover {
+    background: linear-gradient(99deg, #9b1616 6.69%, #640c0c 80.95%);
+  }
+
+  &:active {
+    background: linear-gradient(99deg, #912c2c 6.69%, #852d2d 80.95%);
+  }
 `;

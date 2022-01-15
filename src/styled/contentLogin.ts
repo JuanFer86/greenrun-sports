@@ -10,11 +10,11 @@ export const ContentLogin = styled.div`
     height: 17rem;
     left: 0px;
     bottom: 0;
-    background: #2c2b3e;
+    background: ${({ theme }) => (theme.isDark ? "#2c2b3e" : "#FEFEFE")} ;
     border-radius: 36px 36px 0 0;
 
     h4 {
-    /* color: ${({ theme }) => (theme ? "#FEFEFE" : "#161617")}; */
+    color: ${({ theme }) => (theme.isDark ? "#FEFEFE" : "#161617")};
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
