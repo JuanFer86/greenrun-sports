@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/greenrun-sports/static/css/main.073c9b0a.css",
-    "main.js": "/greenrun-sports/static/js/main.636d26a9.js",
+    "main.js": "/greenrun-sports/static/js/main.c3ca6da0.js",
     "static/media/messi.png": "/greenrun-sports/static/media/messi.c625827029c3e4041e8c.png",
     "static/media/notes.svg": "/greenrun-sports/static/media/notes.7721b1adc700f218a1078627eb53e45b.svg",
     "static/media/like.svg": "/greenrun-sports/static/media/like.21cf49215954d28a02ce1a657e5a2dbb.svg",
@@ -11,10 +11,10 @@
     "static/media/home.svg": "/greenrun-sports/static/media/home.3ddf3a6c8be450cc8570a60f7e54dfc3.svg",
     "static/media/account.svg": "/greenrun-sports/static/media/account.a0f0a68e7429e714de963622e021bd2e.svg",
     "main.073c9b0a.css.map": "/greenrun-sports/static/css/main.073c9b0a.css.map",
-    "main.636d26a9.js.map": "/greenrun-sports/static/js/main.636d26a9.js.map"
+    "main.c3ca6da0.js.map": "/greenrun-sports/static/js/main.c3ca6da0.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.636d26a9.js"
+    "static/js/main.c3ca6da0.js"
   ]
 }
