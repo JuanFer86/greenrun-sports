@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InputStyled = styled.div`
-  background: ${({ theme }) => (theme ? "#2f2f43" : "#FEFEFE" )};
+  background: ${({ theme }) => (theme.isDark ? "#2f2f43" : "#FEFEFE" )};
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-sizing: border-box;
   border-radius: 10px;
@@ -22,16 +22,16 @@ export const InputStyled = styled.div`
   width: 100%;
 
   input {
-    background: ${({ theme }) => (theme ? "#2f2f43" : "#FEFEFE" )};
+    background: ${({ theme }) => (theme.isDark ? "#2f2f43" : "#FEFEFE" )};
     border: none;
     outline: 0;
     padding: 27px 0 10px;
     width: 100%;
-    color: ${({ theme }) => (theme ? "#FEFEFE" : "#161617")};
+    color: ${({ theme }) => (theme.isDark ? "#FEFEFE" : "#161617")};
 
     &::focus {
-      background: ${({ theme }) => (theme ? "#2f2f43" : "#FEFEFE" )};
-      color: ${({ theme }) => (theme ? "#2f2f43" : "#FEFEFE" )};
+      background: ${({ theme }) => (theme.isDark ? "#2f2f43" : "#FEFEFE" )};
+      color: ${({ theme }) => (theme.isDark ? "#2f2f43" : "#FEFEFE" )};
     }
   }
 

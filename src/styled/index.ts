@@ -1,5 +1,5 @@
 import { GlobalStyles } from "./global";
-import { Button, LikeButton, DislikeButton } from "./button";
+import { Button, LikeButton, DislikeButton, LogoutButton } from "./button";
 import { InputStyled } from "./input";
 import { ToggleTheme } from "./theme";
 import { FormLogin } from "./forms";
@@ -30,6 +30,7 @@ export {
   ListItem,
   LikeButton,
   DislikeButton,
+  LogoutButton,
   HistoryInfo,
   RippleContainer
 };

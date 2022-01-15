@@ -10,7 +10,9 @@
 
 ### Correr la Aplicación
 
-npm start
+1. npm install
+
+2. npm start
 
 #### Desarrollador: Juan Fernando Narvaez
 

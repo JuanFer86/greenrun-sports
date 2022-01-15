@@ -16,7 +16,7 @@ export const FormLogin = styled.form`
   }
 
   h4 {
-    /* color: ${({ theme }) => (theme ? "#FEFEFE" : "#161617")}; */
+    color: ${({ theme }) => (theme.isDark ? "#FEFEFE" : "#161617")};
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
@@ -40,7 +40,7 @@ export const FormLogin = styled.form`
   }
 
   .link-forgot {
-    color: ${({ theme }) => (theme ? "#FEFEFE" : "#232232")};
+    color: ${({ theme }) => (theme.isDark ? "#FEFEFE" : "#232232")};
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
